@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Back\AuthController;
+use App\Http\Controllers\Back\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/admin', function () {
-    return view('welcome');
+Route::group(['prefix'=>'admin'],function(){
+   
+
+
+
+	Route::get('/', function () {
+	    return view('back/dashboard');
+	})->middleware('auth')->name('dash');
+
+
+    Route::group(['middleware'=>'guest'],function(){
+
+		Route::get('/login', function () {
+		    return view('back/auth/login');
+		})->name('login');
+
+	    Route::get('/register', function () {
+		    return view('back/auth/register');
+		})->name('register');
+
+		Route::post('/login', [AuthController::class,'authnticate'])->name('login');
+		Route::post('/register',[RegisterController::class,'register'])->name('register');
+    });
+
 });
+

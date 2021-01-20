@@ -1,0 +1,20 @@
+.wraper{
+	&.min{
+	    aside{ 
+	    width:4rem;
+	        header{
+	           h3,#logo{display:none;} 
+	     
+	        }
+	        .aside_content{
+	             .name_link{display:none;}
+	         }
+	    }
+
+	    .content{
+               
+               margin-left:4rem;
+	   }
+
+   }
+}

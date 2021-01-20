@@ -1,0 +1,17 @@
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.wraper.min aside {
+  width: 4rem;
+}
+.wraper.min aside header h3, .wraper.min aside header #logo {
+  display: none;
+}
+.wraper.min aside .aside_content .name_link {
+  display: none;
+}
+.wraper.min .content {
+  margin-left: 4rem;
+}
